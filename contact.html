@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inquire — Atelier</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="site-header"><a class="brand" href="index.html">ATELIER<span>.</span></a><nav><a href="gallery.html">Collection</a><a href="about.html">About</a><a class="active" href="contact.html">Inquiries</a></nav></header>
+<main class="page contact-page">
+  <div class="page-intro"><p class="eyebrow">Private inquiry</p><h1>Let's talk about<br><em>the work.</em></h1><p>Use the form below for availability, pricing, shipping, framing, or private viewing questions.</p></div>
+  <form class="inquiry-form" action="https://formsubmit.co/mail2smoorthy@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New art inquiry">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <label>Name<input required name="name" autocomplete="name"></label>
+    <label>Email<input required type="email" name="email" autocomplete="email"></label>
+    <label>Artwork of interest<input name="artwork" id="artwork-field" placeholder="e.g. Royal Rest"></label>
+    <label>Message<textarea required name="message" rows="7" placeholder="Tell me what you'd like to know…"></textarea></label>
+    <button class="button" type="submit">Send inquiry</button>
+    <p class="form-note">Replace <strong>mail2smoorthy@gmail.com</strong> in this file with the email address where you want inquiries delivered.</p>
+  </form>
+</main>
+<footer class="footer"><span>© 2026 Merlin Malarmathy Atelier.</span><span>Original art · Private inquiries</span></footer>
+<script>
+const params = new URLSearchParams(location.search);
+if (params.get('artwork')) document.querySelector('#artwork-field').value = params.get('artwork');
+</script>
+</body></html>
