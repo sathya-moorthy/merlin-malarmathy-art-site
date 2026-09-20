@@ -1,7 +1,7 @@
 const artworks = [
   {id:"veiled-queen", title:"Veiled Queen", medium:"Oil on Canvas", size:"72 × 60 cm", year:"2026", price:"¥180,000", image:"images/veiled-queen.jpg", available:true},
-  {id:"royal-rest", title:"Royal Rest", medium:"Oil on Canvas", size:"72 × 91 cm", year:"2026", price:"¥145,000", image:"images/royal-rest.png", available:true},
-  {id:"kingfisher-flight", title:"Kingfisher's Flight", medium:"Oil on Canvas", size:"90 × 65 cm", year:"2026", price:"¥220,000", image:"images/kingfisher-flight.png", available:true},
+  {id:"royal-rest", title:"Royal Rest", medium:"Oil on Canvas", size:"72 × 91 cm", year:"2026", price:"¥145,000", image:"images/royal-rest.PNG", available:true},
+  {id:"kingfisher-flight", title:"Kingfisher's Flight", medium:"Oil on Canvas", size:"90 × 65 cm", year:"2026", price:"¥220,000", image:"images/kingfisher-flight.PNG", available:true},
   {id:"soft-distance", title:"Soft Distance", medium:"Oil on Canvas", size:"60 × 45 cm", year:"2025", price:"¥125,000", image:"images/soft-distance.svg", available:true},
   {id:"first-light", title:"First Light", medium:"Oil on Canvas", size:"50 × 40 cm", year:"2025", price:"¥95,000", image:"images/first-light.svg", available:false},
   {id:"still-water", title:"Still Water", medium:"Oil on canvas", size:"100 × 70 cm", year:"2024", price:"¥240,000", image:"images/still-water.svg", available:true}
