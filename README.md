@@ -1,37 +1,25 @@
-# Atelier — Art Catalog + Inquiry Website
+# Atelier Art — Luxury Website
 
-A static, responsive art catalog website with:
-- Homepage
-- Artwork collection grid
-- Individual artwork pages
-- About page
-- Inquiry form
-- Mobile responsive layout
+Static luxury art catalogue ready for GitHub + Cloudflare Pages.
 
-## Customize
+## Before publishing
+1. Replace `ATELIER ART` with the artist/studio name.
+2. Put real artwork JPG/PNG/WebP files in `images/`.
+3. Update the `artworks` array in `app.js`.
+4. Replace `YOUR_EMAIL@example.com` in `contact.html` with the real inquiry email.
+5. Keep `index.html` in the repository root.
 
-1. Open `app.js` and replace the sample `artworks` array with your own artwork data.
-2. Replace the SVG artwork files in `images/` with your own JPG/PNG/WebP images and update the `image` values.
-3. Edit artist name, biography, prices, dimensions, and text in the HTML.
-4. In `contact.html`, replace `YOUR_EMAIL@example.com` with your email address.
+## Cloudflare Pages
+Framework preset: None
+Build command: empty
+Build output directory: `/`
 
-## Inquiry form
+The included SVGs are premium-style placeholders. Replace them with actual artwork photographs before launch.
 
-The included form is wired for FormSubmit. On the first submission, the form service may ask you to confirm the receiving email address. If you prefer another form service, replace the form action.
 
-## Deployment
+Homepage update: the homepage (`index.html`) has been redesigned as an editorial, image-led artist landing page inspired by the high-level structure of Kate Florence Art: full-bleed hero imagery, curated collection sections, a concise artist statement, and a clear enquiry CTA. The remaining pages and artwork data are unchanged.
 
-### Cloudflare Pages
-1. Create a GitHub repository and upload these files.
-2. In Cloudflare Pages, create a project from the repository.
-3. For a plain HTML site, use no build command and set the output directory to `/`.
-4. Add your custom domain in the Pages project.
-
-### Vercel
-1. Create a GitHub repository and upload these files.
-2. Import the repository into Vercel.
-3. Framework preset: Other.
-4. Leave build command empty and deploy.
-5. Add your custom domain.
-
-No server is required for the catalog itself.
+## Homepage update
+The homepage now includes dedicated sections for Original Artworks, Prints, Exhibitions and Podcast, plus an autoplaying muted studio mood video at `media/atelier-mood.mp4`.
+New supporting pages: `prints.html`, `exhibitions.html`, `podcast.html`.
+The video is an original abstract motion piece assembled from the site's placeholder artwork. Replace it with a studio/process video when one is available.

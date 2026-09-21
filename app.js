@@ -1,30 +1,13 @@
 const artworks = [
-  {id:"veiled-queen", title:"Veiled Queen", medium:"Oil on Canvas", size:"72 × 60 cm", year:"2026", price:"¥180,000", image:"images/veiled-queen.jpg", available:true},
-  {id:"royal-rest", title:"Royal Rest", medium:"Oil on Canvas", size:"72 × 91 cm", year:"2026", price:"¥145,000", image:"images/royal-rest.PNG", available:true},
-  {id:"kingfisher-flight", title:"Kingfisher's Flight", medium:"Oil on Canvas", size:"90 × 65 cm", year:"2026", price:"¥220,000", image:"images/kingfisher-flight.PNG", available:true},
-  {id:"soft-distance", title:"Soft Distance", medium:"Oil on Canvas", size:"60 × 45 cm", year:"2025", price:"¥125,000", image:"images/soft-distance.svg", available:true},
-  {id:"first-light", title:"First Light", medium:"Oil on Canvas", size:"50 × 40 cm", year:"2025", price:"¥95,000", image:"images/first-light.svg", available:false},
-  {id:"still-water", title:"Still Water", medium:"Oil on canvas", size:"100 × 70 cm", year:"2024", price:"¥240,000", image:"images/still-water.svg", available:true}
+    { id: "blue-horizon", title: "Blue Horizon", year: "2026", medium: "Oil on linen", dimensions: "100 × 120 cm", image: "images/blue-horizon.svg", description: "A study of distance, softened light and the quiet edge of a horizon." },
+    { id: "quiet-field", title: "Quiet Field", year: "2026", medium: "Oil and pigment on linen", dimensions: "90 × 110 cm", image: "images/quiet-field.svg", description: "An open field reduced to its essential forms — earth, atmosphere and light." },
+    { id: "after-rain", title: "After Rain", year: "2026", medium: "Oil on canvas", dimensions: "80 × 100 cm", image: "images/after-rain.svg", description: "The muted luminosity that remains after weather has passed." },
+    { id: "soft-distance", title: "Soft Distance", year: "2025", medium: "Oil on linen", dimensions: "70 × 90 cm", image: "images/soft-distance.svg", description: "A distant landscape dissolving gradually into atmosphere." },
+    { id: "first-light", title: "First Light", year: "2025", medium: "Oil on canvas", dimensions: "60 × 80 cm", image: "images/first-light.svg", description: "The restrained warmth of the first light across an empty horizon." },
+    { id: "still-water", title: "Still Water", year: "2025", medium: "Oil on linen", dimensions: "80 × 80 cm", image: "images/still-water.svg", description: "A nearly still surface reflecting the last quiet tones of evening." }
 ];
-
-function card(a){
- return `<a class="artwork-card" href="artwork.html?id=${a.id}">
-   <div class="image-wrap"><img src="${a.image}" alt="${a.title}"></div>
-   <div class="card-meta"><div><h3>${a.title}</h3><p>${a.medium} · ${a.size}</p></div><span>${a.available ? a.price : "Sold"}</span></div>
- </a>`;
-}
-const galleries = document.querySelectorAll("#gallery");
-galleries.forEach(g => g.innerHTML = artworks.map(card).join(""));
-
-const target = document.querySelector("#artwork");
-if(target){
- const id = new URLSearchParams(location.search).get("id") || artworks[0].id;
- const a = artworks.find(x => x.id === id) || artworks[0];
- document.title = `${a.title} — Atelier`;
- target.innerHTML = `<div class="artwork-visual"><img src="${a.image}" alt="${a.title}"></div>
- <div class="artwork-info"><p class="eyebrow">Original work · ${a.year}</p><h1>${a.title}</h1>
- <dl><div><dt>Medium</dt><dd>${a.medium}</dd></div><div><dt>Dimensions</dt><dd>${a.size}</dd></div><div><dt>Price</dt><dd>${a.available ? a.price : "Sold"}</dd></div></dl>
- <p class="art-description">A study in atmosphere, balance, and quiet movement. Each surface is built by hand in the studio, allowing texture and subtle shifts in tone to remain visible.</p>
- ${a.available ? `<a class="button" href="contact.html?artwork=${encodeURIComponent(a.title)}">Inquire about this work</a>` : `<p class="sold-note">This work has been sold. Contact the studio to discuss similar works or upcoming pieces.</p><a class="text-link" href="contact.html">Contact the studio →</a>`}
- </div>`;
-}
+const gallery = document.querySelector("#gallery");
+if (gallery) gallery.innerHTML = artworks.map((a, i) => `<a class="card ${i % 3 === 1 ? 'tall' : ''}" href="artwork.html?id=${a.id}"><div class="cardimg"><img src="${a.image}" alt="${a.title}"></div><div class="meta"><div><h3>${a.title}</h3><p>${a.medium}</p></div><span>${a.year}</span></div></a>`).join("");
+const page = document.querySelector("#artwork");
+if (page) { const id = new URLSearchParams(location.search).get("id") || "blue-horizon"; const a = artworks.find(x => x.id === id) || artworks[0]; page.innerHTML = `<section class="section detail"><a class="back" href="gallery.html">← Back to collection</a><div class="detailgrid"><div class="large"><img src="${a.image}" alt="${a.title}"></div><div class="info"><p class="eyebrow">Original work · ${a.year}</p><h1>${a.title}</h1><p class="desc">${a.description}</p><dl><div><dt>Medium</dt><dd>${a.medium}</dd></div><div><dt>Dimensions</dt><dd>${a.dimensions}</dd></div><div><dt>Year</dt><dd>${a.year}</dd></div></dl><a class="button" href="contact.html">Inquire about this work <span>↗</span></a></div></div></section>` }
+const menu = document.querySelector(".menu"), nav = document.querySelector("nav"); if (menu) menu.onclick = () => { nav.classList.toggle("open"); menu.classList.toggle("open") };

@@ -1,25 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inquire — Merlin's Atelier</title><link rel="stylesheet" href="styles.css"></head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Private artwork inquiries">
+    <title>Inquiry — Atelier Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
-<header class="site-header"><a class="brand" href="index.html">MERLIN MALARMATHY ATELIER<span>.</span></a><nav><a href="gallery.html">Collection</a><a href="about.html">About</a><a class="active" href="contact.html">Inquiries</a></nav></header>
-<main class="page contact-page">
-  <div class="page-intro"><p class="eyebrow">Private inquiry</p><h1>Let's talk about<br><em>the work.</em></h1><p>Use the form below for availability, pricing, shipping, framing, or private viewing questions.</p></div>
-  <form class="inquiry-form" action="https://formsubmit.co/mail2smoorthy@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="New art inquiry">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <label>Name<input required name="name" autocomplete="name"></label>
-    <label>Email<input required type="email" name="email" autocomplete="email"></label>
-    <label>Artwork of interest<input name="artwork" id="artwork-field" placeholder="e.g. Royal Rest"></label>
-    <label>Message<textarea required name="message" rows="7" placeholder="Tell me what you'd like to know…"></textarea></label>
-    <button class="button" type="submit">Send inquiry</button>
-    </form>
-</main>
-<footer class="footer"><span>© 2026 Merlin Malarmathy Atelier.</span><span>Original art · Private inquiries</span></footer>
-<script>
-const params = new URLSearchParams(location.search);
-if (params.get('artwork')) document.querySelector('#artwork-field').value = params.get('artwork');
-</script>
-</body></html>
+    <header class="header"><a class="logo" href="index.html">ATELIER <span>ART</span></a><button class="menu"
+            aria-label="Menu"><i></i><i></i></button>
+        <nav><a href="gallery.html">Collection</a><a href="about.html">About</a><a class="active"
+                href="contact.html">Inquiry</a></nav>
+    </header>
+    <main>
+        <section class="section pagehead">
+            <p class="label">03 / PRIVATE INQUIRY</p>
+            <h1>Begin a <em>conversation.</em></h1>
+            <p class="pageintro">For artwork availability, dimensions, pricing, commissions or private viewing
+                appointments, please get in touch.</p>
+        </section>
+        <section class="contact section">
+            <div>
+                <p class="eyebrow">Direct contact</p>
+                <h2>Available by inquiry.</h2>
+                <p class="muted">Responses are generally sent within two business days.</p>
+                <p><a class="email" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+            </div>
+            <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST"><input type="hidden"
+                    name="_subject" value="Private artwork inquiry"><input type="hidden" name="_captcha"
+                    value="false"><input type="hidden" name="_template" value="table"><label>Name<input name="name"
+                        required></label><label>Email<input type="email" name="email" required></label><label>Artwork /
+                    subject of inquiry<input name="artwork"></label><label>Message<textarea name="message" rows="6"
+                        required></textarea></label><button class="button">Send inquiry <span>↗</span></button></form>
+        </section>
+    </main>
+    <footer class="footer">
+        <div><a class="logo" href="index.html">ATELIER <span>ART</span></a>
+            <p>Contemporary painting · Private inquiries</p>
+        </div>
+        <div class="footlinks"><a href="gallery.html">Collection</a><a href="about.html">About</a><a
+                href="contact.html">Inquiry</a></div><small>© 2026 Atelier Art</small>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
