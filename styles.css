@@ -90,7 +90,102 @@ nav a:hover,
 nav a.active {
     border-color: var(--ink);
 }
+/* =================================
+   SOCIAL / SNS LINKS
+   ================================= */
 
+.social-links {
+    margin-top: 55px;
+}
+
+
+
+.social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.social-list a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink);
+}
+
+.social-list a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--ink);
+    transition: width .3s ease;
+}
+
+.social-list a:hover::after {
+    width: 100%;
+}
+.social-links {
+    margin-top: 55px;
+}
+
+.social-label {
+    margin: 0 0 28px;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.social-icons a {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.social-icons svg {
+    width: 50px;
+    height: 50px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-icons a:hover {
+    opacity: .5;
+    transform: translateY(-2px);
+}
+
+/* YouTube play triangle */
+.social-icons svg .icon-fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+/* Facebook and Pinterest use filled shapes */
+.social-icons a[aria-label="Facebook"] svg,
+.social-icons a[aria-label="Pinterest"] svg {
+    fill: currentColor;
+    stroke: none;
+}
 /* =================================
    WORK / ORIGINAL ARTWORKS HOVER
    Matches the reference video:
