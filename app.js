@@ -9,7 +9,23 @@ const commissioned = [
     { id: "festive-nature", title: "Festive Nature", year: "2026", medium: "Oil on Canvas", dimensions: "100 × 120 cm", image: "images/festive-nature.jpg", description: "A vibrant depiction of the festive season." },
 ];
 const gallery = document.querySelector("#gallery");
-if (gallery) gallery.innerHTML = artworks.map((a, i) => `<a class="card ${i % 3 === 1 ? 'tall' : ''}" href="artwork.html?id=${a.id}"><div class="cardimg"><img src="${a.image}" alt="${a.title}"></div><div class="meta"><div><h3>${a.title}</h3><p>${a.medium}</p></div><span>${a.year}</span></div></a>`).join("");
+if (gallery) {
+    gallery.innerHTML = artworks.map((a) => `
+        <a class="card" href="artwork.html?id=${a.id}">
+            <div class="cardimg">
+                <img src="${a.image}" alt="${a.title}">
+            </div>
+
+            <div class="meta">
+                <div>
+                    <h3>${a.title}</h3>
+                    <p>${a.medium}</p>
+                </div>
+                <span>${a.year}</span>
+            </div>
+        </a>
+    `).join("");
+}
 const commission = document.querySelector("#commission");
 if (commission) commission.innerHTML = commissioned.map((a, i) => `<a class="card ${i % 3 === 1 ? 'tall' : ''}" href="artwork.html?id=${a.id}"><div class="cardimg"><img src="${a.image}" alt="${a.title}"></div><div class="meta"><div><h3>${a.title}</h3><p>${a.medium}</p></div><span>${a.year}</span></div></a>`).join("");
 
