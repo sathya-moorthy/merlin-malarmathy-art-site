@@ -404,7 +404,7 @@ h3 {
     font-weight: 700;
 
     letter-spacing: .14em;
-    text-transform: uppercase;
+    text-transform: CamelCase;
 }
 
 .hero-link b {
@@ -601,7 +601,7 @@ h3 {
 }
 
 .section.alt {
-    background: var(--sand);
+    background: #faf9f6;
 }
 
 .section-head {
@@ -803,34 +803,15 @@ h3 {
 }
 
 .podcast-card {
-    min-height: 410px;
 
-    padding: 55px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    background: var(--ink);
-
-    color: var(--white);
+        width: 100%;
+    overflow: hidden;
 }
-
-.podcast-card .label {
-    color: rgba(255, 255, 255, .6);
-}
-
-.podcast-card h2,
-.podcast-copy h3 {
-    font-family: var(--serif);
-    font-weight: 400;
-}
-
-.podcast-card h2 {
-    margin: 0;
-
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: .88;
+.podcast-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .episode {
@@ -938,6 +919,15 @@ h3 {
     margin: 0;
 
     font-size: clamp(65px, 9vw, 130px);
+
+    line-height: .98;
+    letter-spacing: -.03em;
+}
+
+.pagehead h2 {
+    margin: 0;
+
+    font-size: clamp(48px, 9vw, 75px);
 
     line-height: .98;
     letter-spacing: -.03em;
@@ -1379,7 +1369,8 @@ form textarea:focus {
    ORIGINAL ARTWORKS — 2 × 2 GALLERY
    ========================================================= */
 
-#gallery.gallery {
+#gallery.gallery,
+#commission.gallery {
     display: grid;
 
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1391,7 +1382,8 @@ form textarea:focus {
     align-items: start;
 }
 
-#gallery.gallery .card {
+#gallery.gallery .card,
+#commission.gallery .card {
     display: block;
 
     width: 100%;
@@ -1404,7 +1396,8 @@ form textarea:focus {
     text-decoration: none;
 }
 
-#gallery.gallery .cardimg {
+#gallery.gallery .cardimg,
+#commission.gallery .cardimg {
     width: 100%;
 
     aspect-ratio: 4 / 5;
@@ -1414,7 +1407,8 @@ form textarea:focus {
     background: var(--paper);
 }
 
-#gallery.gallery .cardimg img {
+#gallery.gallery .cardimg img,
+#commission.gallery .cardimg img {
     display: block;
 
     width: 100%;
@@ -1426,11 +1420,13 @@ form textarea:focus {
     transition: transform .6s ease;
 }
 
-#gallery.gallery .card:hover .cardimg img {
+#gallery.gallery .card:hover .cardimg img,
+#commission.gallery .card:hover .cardimg img {
     transform: scale(1.025);
 }
 
-#gallery.gallery .meta {
+#gallery.gallery .meta,
+#commission.gallery .meta {
     display: flex;
 
     justify-content: space-between;
@@ -1441,7 +1437,8 @@ form textarea:focus {
     padding-top: 18px;
 }
 
-#gallery.gallery .meta h3 {
+#gallery.gallery .meta h3,
+#commission.gallery .meta h3 {
     margin: 0 0 6px;
 
     font-family: var(--serif);
@@ -1452,7 +1449,8 @@ form textarea:focus {
     line-height: 1.1;
 }
 
-#gallery.gallery .meta p {
+#gallery.gallery .meta p,
+#commission.gallery .meta p {
     margin: 0;
 
     font-size: 11px;
@@ -1463,7 +1461,8 @@ form textarea:focus {
     color: var(--muted);
 }
 
-#gallery.gallery .meta > span {
+#gallery.gallery .meta > span,
+#commission.gallery .meta > span {
     flex-shrink: 0;
 
     font-size: 11px;
@@ -1722,7 +1721,8 @@ form textarea:focus {
 
 @media (max-width: 700px) {
 
-    #gallery.gallery {
+    #gallery.gallery,
+    #commission.gallery {
         grid-template-columns: 1fr;
 
         gap: 50px;
@@ -1730,11 +1730,13 @@ form textarea:focus {
         padding: 60px 6vw;
     }
 
-    #gallery.gallery .cardimg {
+    #gallery.gallery .cardimg,
+    #commission.gallery .cardimg {
         aspect-ratio: 4 / 5;
     }
 
-    #gallery.gallery .meta h3 {
+    #gallery.gallery .meta h3,
+    #commission.gallery .meta h3 {
         font-size: 23px;
     }
 
