@@ -1,13 +1,16 @@
+/* =========================================================
+   TOKENS
+   ========================================================= */
 :root {
     --white: #fff;
     --paper: #f4f1eb;
-    --sand: #f4f0e9;
     --ink: #171615;
     --muted: #77716a;
+    --muted-dark: #5c5852;
     --line: #ddd8d0;
-    --brown: #7a573e;
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans: "Inter", Arial, sans-serif;
+    --header-h: 96px;
 }
 
 /* =========================================================
@@ -46,129 +49,112 @@ h3 {
     font-weight: 400;
 }
 
+/* Shared small-caps labels */
+.eyebrow,
+.label,
+.hero-meta {
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    margin-bottom: 20px;
+    opacity: .85;
+}
+
+.label {
+    margin-bottom: 22px;
+    color: var(--muted);
+}
+
+.text-link {
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--ink);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
 /* =========================================================
-   SHARED HEADER
-   Homepage + Gallery + Inner Pages
+   HEADER + NAVIGATION (all pages)
    ========================================================= */
-/* Homepage and inner-page headers use exactly the same styling */
-.nav,
-.header {
-    height: 96px;
+.nav {
+    position: relative;
+    z-index: 1000;
+    height: var(--header-h);
     padding: 0 5vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 1000;
     background: var(--white);
     border-bottom: 1px solid var(--line);
-    box-sizing: border-box;
 }
 
-/* ---------- Logos ---------- */
-.logo-img,
-.logo {
+.site-logo {
     width: 235px;
     height: 65px;
+    flex: 0 0 235px;
     display: flex;
     align-items: center;
-    flex: 0 0 235px;
     overflow: hidden;
 }
 
-.logo-img {
-    display: block;
-    height: auto;
-    max-height: 65px;
-    object-fit: contain;
-}
-
-.logo img {
-    display: block;
+.site-logo img {
     width: 235px;
-    height: auto;
     max-width: 100%;
+    height: auto;
     max-height: 65px;
     object-fit: contain;
     object-position: left center;
 }
 
-/* ---------- Homepage Navigation ---------- */
-.nav-links {
+.site-nav {
     display: flex;
     align-items: center;
     gap: 42px;
     height: 100%;
-    font-family: var(--sans);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: .16em;
     text-transform: uppercase;
 }
 
-.nav-links a {
+.site-nav>a,
+.nav-work>a {
     display: inline-flex;
     align-items: center;
-    height: 96px;
-    padding: 0;
+    height: var(--header-h);
     border-bottom: 1px solid transparent;
     white-space: nowrap;
     transition: opacity .25s ease;
 }
 
-.nav-links a:hover {
+.site-nav>a:hover,
+.nav-work>a:hover {
     opacity: .5;
 }
 
-/* ---------- Inner Page Navigation ---------- */
-.header nav {
-    display: flex;
-    align-items: center;
-    gap: 42px;
-    height: 100%;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-}
-
-.header nav>a,
-.header nav>.nav-work>a {
-    display: inline-flex;
-    align-items: center;
-    height: 96px;
-    padding: 0;
-    border-bottom: 1px solid transparent;
-    white-space: nowrap;
-    transition: opacity .25s ease;
-}
-
-.header nav>a:hover,
-.header nav>.nav-work>a:hover {
-    opacity: .5;
-}
-
-.header nav a.active {
+/* Optional: add class="active" to the current page's link */
+.site-nav a.active {
     border-color: var(--ink);
 }
 
-/* =========================================================
-   ORIGINAL ARTWORKS DROPDOWN
-   ========================================================= */
+/* ---------- Artworks dropdown ---------- */
 .nav-work {
     position: relative;
+    z-index: 2000;
     display: flex;
     align-items: center;
-    height: 96px;
-    z-index: 2000;
+    height: var(--header-h);
 }
 
-/* Dropdown */
 .work-dropdown {
     position: absolute;
     top: 100%;
     left: -20px;
+    z-index: 9999;
     min-width: 270px;
     padding: 18px 22px;
     background: var(--white);
@@ -178,26 +164,17 @@ h3 {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(0);
-    transition:
-        opacity .22s ease,
-        visibility .22s ease;
-    z-index: 9999;
+    transition: opacity .22s ease, visibility .22s ease;
 }
 
 .work-dropdown a {
     display: block;
-    width: 100%;
     padding: 9px 0;
-    border: 0;
-    color: var(--ink);
-    font-family: var(--sans);
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 1.5px;
     line-height: 1.5;
     white-space: nowrap;
-    opacity: 1;
     transition: opacity .18s ease;
 }
 
@@ -213,32 +190,27 @@ h3 {
 }
 
 /* =========================================================
-   HOMEPAGE
+   HOMEPAGE — VIDEO HERO
    ========================================================= */
 .home {
     overflow: hidden;
 }
 
-/* =========================================================
-   HOMEPAGE HERO — VIDEO
-   ========================================================= */
 .hero {
     position: relative;
+    z-index: 1;
     width: 100%;
-    min-height: calc(100vh - 96px);
+    min-height: calc(100vh - var(--header-h));
     background: #272725;
     overflow: hidden;
-    z-index: 1;
 }
 
 .hero video {
     position: absolute;
     inset: 0;
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 40% 45%;
-    filter: none;
     transform: translateZ(0);
     backface-visibility: hidden;
 }
@@ -257,7 +229,7 @@ h3 {
 .hero-content {
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 96px);
+    min-height: calc(100vh - var(--header-h));
     max-width: 900px;
     padding: 0 7vw 9vh;
     display: flex;
@@ -266,24 +238,9 @@ h3 {
     color: var(--white);
 }
 
-.eyebrow,
-.label,
-.hero-meta {
-    font-size: 10px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-}
-
-.eyebrow {
-    margin-bottom: 20px;
-    opacity: .85;
-}
-
 .hero h1 {
     margin: 0 0 28px;
-    font-family: var(--serif);
     font-size: clamp(4rem, 8.7vw, 8.5rem);
-    font-weight: 400;
     line-height: .82;
     letter-spacing: -.03em;
 }
@@ -327,12 +284,12 @@ h3 {
 }
 
 /* =========================================================
-   FULL-SCREEN FEATURED ARTWORK
+   HOMEPAGE — FEATURED ARTWORK
    ========================================================= */
 .hero-artwork {
     position: relative;
     width: 100%;
-    height: calc(100vh - 96px);
+    height: calc(100vh - var(--header-h));
     min-height: 650px;
     overflow: hidden;
 }
@@ -340,7 +297,6 @@ h3 {
 .hero-artwork-image {
     position: absolute;
     inset: 0;
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -373,9 +329,7 @@ h3 {
 
 .hero-artwork-content h1 {
     margin: 0 0 22px;
-    font-family: var(--serif);
     font-size: clamp(55px, 6vw, 92px);
-    font-weight: 400;
     line-height: .95;
     letter-spacing: -.02em;
 }
@@ -385,73 +339,21 @@ h3 {
     margin: 0 0 34px;
     font-family: var(--serif);
     font-size: clamp(20px, 2vw, 28px);
-    font-weight: 400;
     line-height: 1.35;
 }
 
-.hero-artwork .hero-link {
+.hero-artwork .text-link {
     border-color: rgba(255, 255, 255, .8);
-    transition:
-        opacity .25s ease,
-        border-color .25s ease;
+    transition: opacity .25s ease, border-color .25s ease;
 }
 
-.hero-artwork .hero-link:hover {
+.hero-artwork .text-link:hover {
     opacity: .65;
     border-color: transparent;
 }
 
 /* =========================================================
-   HOMEPAGE SECTIONS
-   ========================================================= */
-.intro {
-    padding: 125px 8vw 110px;
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 10vw;
-    align-items: end;
-}
-
-.label {
-    margin-bottom: 22px;
-    color: var(--muted);
-}
-
-.intro h2,
-.section-title,
-.podcast-copy h2,
-.subscription h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-}
-
-.intro h2 {
-    margin: 0;
-    font-size: clamp(3.2rem, 6vw, 6.4rem);
-    line-height: .9;
-    letter-spacing: -.025em;
-}
-
-.intro-copy {
-    max-width: 440px;
-    color: #5f5a54;
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-.intro-copy a,
-.subscription a {
-    display: inline-block;
-    margin-top: 25px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--ink);
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-}
-
-/* =========================================================
-   GENERAL SECTIONS
+   SECTIONS
    ========================================================= */
 .section {
     padding: 105px 7vw;
@@ -475,67 +377,23 @@ h3 {
     line-height: .88;
 }
 
-.section-intro {
-    max-width: 390px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
+.section .label {
+    margin: 0 0 28px;
 }
 
-/* =========================================================
-   ORIGINAL ARTWORK FEATURE
-   ========================================================= */
-.original-grid {
-    display: grid;
-    grid-template-columns: 1.35fr .65fr;
-    gap: 7vw;
-    align-items: center;
-}
-
-.original-image {
-    overflow: hidden;
-    background: #eee;
-}
-
-.original-image img {
-    aspect-ratio: 1;
-    object-fit: cover;
-    transition: transform .8s ease;
-}
-
-.original-image:hover img,
-.collection-card:hover img {
-    transform: scale(1.02);
-}
-
-.original-copy h3 {
-    margin: 0 0 18px;
-    font-family: var(--serif);
-    font-size: clamp(2.7rem, 4.6vw, 5rem);
-    font-weight: 400;
-    line-height: .9;
-}
-
-.original-copy .meta {
-    margin-bottom: 24px;
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: .13em;
+.intro-copy {
+    max-width: 440px;
+    color: var(--muted-dark);
+    font-size: 15px;
     line-height: 1.9;
-    text-transform: uppercase;
 }
 
-.original-copy p {
-    max-width: 410px;
-    margin: 0 0 30px;
-    font-family: var(--serif);
-    font-size: 1.35rem;
-    line-height: 1.35;
+.intro-copy .text-link {
+    display: inline-block;
+    margin-top: 25px;
 }
 
-/* =========================================================
-   COLLECTION STRIP
-   ========================================================= */
+/* Collection strip (homepage prints) */
 .collection-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -556,13 +414,15 @@ h3 {
     transition: transform .8s ease;
 }
 
+.collection-card:hover img {
+    transform: scale(1.02);
+}
+
 .collection-card::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg,
-            transparent 42%,
-            rgba(0, 0, 0, .58));
+    background: linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, .58));
 }
 
 .collection-copy {
@@ -583,23 +443,10 @@ h3 {
 
 .collection-copy h3 {
     margin: 8px 0 0;
-    font-family: var(--serif);
     font-size: 2.5rem;
-    font-weight: 400;
 }
 
-.text-link {
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--ink);
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-/* =========================================================
-   TUTORIALS / PODCAST
-   ========================================================= */
+/* Tutorials teaser (homepage) */
 .tutorials {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -608,22 +455,11 @@ h3 {
 }
 
 .podcast-card {
-    width: 100%;
     overflow: hidden;
 }
 
 .podcast-card img {
-    display: block;
-    width: 100%;
     height: auto;
-    object-fit: cover;
-}
-
-.episode {
-    color: rgba(255, 255, 255, .65);
-    font-size: 10px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
 }
 
 .podcast-copy h3 {
@@ -638,32 +474,6 @@ h3 {
     color: var(--muted);
     font-size: 14px;
     line-height: 1.9;
-}
-
-/* =========================================================
-   SUBSCRIPTION
-   ========================================================= */
-.subscription {
-    padding: 105px 8vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8vw;
-    align-items: end;
-    background: #f7f5f1;
-}
-
-.subscription h2 {
-    margin: 0;
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: .9;
-}
-
-.subscription p {
-    max-width: 390px;
-    margin: 0 0 20px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
 }
 
 /* =========================================================
@@ -682,22 +492,10 @@ h3 {
 }
 
 /* =========================================================
-   PAGE HEADINGS
+   INNER PAGES — HEADINGS
    ========================================================= */
-.section .label,
-.pagehead .label {
-    margin: 0 0 28px;
-}
-
 .pagehead {
     padding-bottom: 70px;
-}
-
-.pagehead h1 {
-    margin: 0;
-    font-size: clamp(65px, 9vw, 130px);
-    line-height: .98;
-    letter-spacing: -.03em;
 }
 
 .pagehead h2 {
@@ -707,173 +505,30 @@ h3 {
     letter-spacing: -.03em;
 }
 
-.pageintro {
-    max-width: 560px;
-    margin: 40px 0 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.9;
-}
-
 /* =========================================================
-   ARTWORK META
+   BUTTON + FORM
    ========================================================= */
-.meta {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 18px 2px 0;
-    border-top: 1px solid var(--line);
-    margin-top: 14px;
-}
-
-.meta h3 {
-    margin: 0 0 3px;
-}
-
-.meta p,
-.meta span {
-    margin: 0;
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-/* =========================================================
-   ABOUT
-   ========================================================= */
-.about {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    gap: 6vw;
+.button {
+    display: inline-flex;
     align-items: center;
-    padding-top: 30px;
+    justify-content: space-between;
+    align-self: flex-start;
+    gap: 40px;
+    padding: 17px 23px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--white);
+    font: 500 10px var(--sans);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-.aboutcopy {
-    max-width: 650px;
-}
-
-.aboutcopy h2 {
-    margin-bottom: 20px;
-    font-size: clamp(40px, 4vw, 70px);
-}
-
-.aboutcopy p:not(.eyebrow) {
-    max-width: 480px;
-    margin: 0 0 22px;
-    color: #5c5852;
-    font-size: 14px;
-    line-height: 2;
-}
-
-.artist-image {
-    width: 100%;
-    max-width: 420px;
-}
-
-.artist-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* =========================================================
-   FEATURE LINKS
-   ========================================================= */
-.four-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-}
-
-.feature-link {
-    position: relative;
-    display: grid;
-    grid-template-columns: 50px 1fr 30px;
-    gap: 25px;
-    min-height: 240px;
-    padding: 45px;
+.button:hover {
+    background: transparent;
     color: var(--ink);
-    border-right: 1px solid var(--line);
-    transition: background .3s ease;
 }
 
-.feature-link:last-child {
-    border-right: none;
-}
-
-.feature-link:hover {
-    background: #ebe7df;
-}
-
-.feature-no {
-    font-family: var(--sans);
-    font-size: 10px;
-    letter-spacing: .15em;
-    color: var(--muted);
-}
-
-.feature-link h3 {
-    margin: 0 0 18px;
-    font-family: var(--serif);
-    font-size: 42px;
-    font-weight: 400;
-    line-height: .95;
-}
-
-.feature-link p {
-    max-width: 300px;
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--muted);
-}
-
-.feature-arrow {
-    align-self: start;
-    font-size: 22px;
-    transition: transform .3s ease;
-}
-
-.feature-link:hover .feature-arrow {
-    transform: translate(5px, 5px);
-}
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-.contact {
-    display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 12vw;
-    padding-top: 20px;
-}
-
-.contact h2 {
-    margin-bottom: 25px;
-    font-size: clamp(52px, 5vw, 80px);
-}
-
-.muted {
-    max-width: 350px;
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.email {
-    display: inline-block;
-    margin-top: 30px;
-    border-bottom: 1px solid;
-    font-family: var(--serif);
-    font-size: 25px;
-}
-
-/* =========================================================
-   FORM
-   ========================================================= */
 form {
     display: flex;
     flex-direction: column;
@@ -905,43 +560,74 @@ form textarea:focus {
     border-color: var(--ink);
 }
 
-/* ---------- Button ---------- */
-.button {
-    display: inline-flex;
-    align-items: center;
+/* =========================================================
+   GALLERY CARDS (originals, commissioned, prints)
+   ========================================================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px 40px;
+    padding: 80px 6vw;
+    align-items: start;
+}
+
+.card {
+    display: block;
+    min-width: 0;
+}
+
+.cardimg {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--paper);
+}
+
+.cardimg img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 85% 50%;
+    transition: transform .6s ease;
+}
+
+.card:hover .cardimg img {
+    transform: scale(1.025);
+}
+
+.meta {
+    display: flex;
     justify-content: space-between;
-    align-self: flex-start;
-    gap: 40px;
-    padding: 17px 23px;
-    border: 1px solid var(--ink);
-    background: var(--ink);
-    color: var(--white);
-    font: 500 10px var(--sans);
-    letter-spacing: .16em;
+    align-items: flex-start;
+    gap: 25px;
+    margin-top: 14px;
+    padding: 18px 2px 0;
+    border-top: 1px solid var(--line);
+}
+
+.meta h3 {
+    margin: 0 0 6px;
+    font-size: 25px;
+    line-height: 1.1;
+}
+
+.meta p,
+.meta span {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: .08em;
     text-transform: uppercase;
-    cursor: pointer;
 }
 
-.button:hover {
-    background: transparent;
-    color: var(--ink);
+.meta span {
+    flex-shrink: 0;
 }
 
-.contact+.pagehead {
-    padding-top: 10px;
-}
-
-.contact+.pagehead .sns-heading {
-    margin: 0 0 10px;
-}
-
-.contact+.pagehead .social-links {
-    margin-top: 0;
-}
-
-.sns-heading {
-    margin: 0 0 25px;
-    font-size: 1rem;
+.print-description {
+    max-width: 520px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
 }
 
 /* =========================================================
@@ -978,7 +664,7 @@ form textarea:focus {
 .desc {
     max-width: 430px;
     margin-bottom: 45px;
-    color: #5c5852;
+    color: var(--muted-dark);
     font-size: 14px;
     line-height: 1.9;
 }
@@ -1008,66 +694,134 @@ form textarea:focus {
 }
 
 /* =========================================================
-   SOCIAL ICONS
+   TUTORIALS PAGE
    ========================================================= */
-.social-links {
-    width: 100%;
-    margin-top: 50px;
+.tutorial-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 80px 6vw;
 }
 
-.social-label {
-    margin: 0 0 18px;
-    font-family: var(--sans);
+.tutorial-card {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    align-items: center;
+}
+
+.tutorial-image {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--paper);
+}
+
+.tutorial-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tutorial-content {
+    padding: 40px 8vw 40px 7vw;
+}
+
+.tutorial-content h2 {
+    margin: 12px 0 18px;
+    font-size: clamp(38px, 4vw, 64px);
+    line-height: .95;
+}
+
+.tutorial-subtitle {
+    margin: 0 0 20px;
     font-size: 15px;
-    font-weight: 500;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--ink);
+    line-height: 1.7;
 }
 
-.social-icons {
-    display: flex;
+.tutorial-description {
+    max-width: 500px;
+    margin: 0 0 30px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   ABOUT PAGE
+   ========================================================= */
+.about {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 6vw;
     align-items: center;
-    gap: 22px;
+    padding-top: 30px;
 }
 
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    color: var(--ink);
-    transition: opacity .25s ease, transform .25s ease;
+.aboutcopy {
+    max-width: 650px;
 }
 
-.social-icons svg {
-    width: 80px;
-    height: 80px;
-    display: block;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.aboutcopy h2 {
+    margin-bottom: 20px;
+    font-size: clamp(40px, 4vw, 70px);
 }
 
-.social-icons a:hover {
-    opacity: .5;
-    transform: translateY(-2px);
+.aboutcopy p:not(.eyebrow) {
+    max-width: 480px;
+    margin: 0 0 22px;
+    color: var(--muted-dark);
+    font-size: 14px;
+    line-height: 2;
 }
 
-.social-icons svg .icon-fill,
-.social-icons a[aria-label="Facebook"] svg,
-.social-icons a[aria-label="WhatsApp"] svg {
-    fill: currentColor;
-    stroke: none;
+.artist-image {
+    max-width: 420px;
+}
+
+.artist-image img {
+    height: auto;
+}
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+.contact {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 12vw;
+    padding-top: 20px;
+}
+
+.contact h2 {
+    margin-bottom: 25px;
+    font-size: clamp(52px, 5vw, 80px);
+}
+
+.muted {
+    max-width: 350px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.email {
+    display: inline-block;
+    margin-top: 30px;
+    border-bottom: 1px solid;
+    font-family: var(--serif);
+    font-size: 25px;
+}
+
+.contact+.pagehead {
+    padding-top: 10px;
+}
+
+.sns-heading {
+    margin: 0 0 10px;
+    font-size: 1rem;
 }
 
 .social-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 100%;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
 }
@@ -1077,16 +831,18 @@ form textarea:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 150px;
     gap: 18px;
-    color: var(--ink);
-    text-decoration: none;
+    min-height: 150px;
     border-right: 1px solid var(--line);
     transition: background .3s ease;
 }
 
 .social-item:last-child {
     border-right: none;
+}
+
+.social-item:hover {
+    background: var(--paper);
 }
 
 .social-item svg {
@@ -1097,6 +853,11 @@ form textarea:focus {
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transition: transform .25s ease;
+}
+
+.social-item:hover svg {
+    transform: translateY(-2px);
 }
 
 .social-item svg .icon-fill {
@@ -1105,168 +866,49 @@ form textarea:focus {
 }
 
 .social-item span {
-    font-family: var(--sans);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: .16em;
     text-transform: uppercase;
 }
 
-.social-item:hover {
-    background: var(--paper);
-}
-
-.social-item:hover svg {
-    transform: translateY(-2px);
-}
-
-.social-item svg {
-    transition: transform .25s ease;
-}
-
 /* =========================================================
-   ORIGINAL ARTWORKS — 2 × 2 GALLERY
-   ========================================================= */
-#gallery.gallery,
-#commission.gallery,
-#prints.gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 70px 40px;
-    padding: 80px 6vw;
-    align-items: start;
-}
-
-#gallery.gallery .card,
-#commission.gallery .card,
-#prints.gallery .card {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    color: var(--ink);
-    text-decoration: none;
-}
-
-#gallery.gallery .cardimg,
-#commission.gallery .cardimg,
-#prints.gallery .cardimg {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    background: var(--paper);
-}
-
-#gallery.gallery .cardimg img,
-#commission.gallery .cardimg img,
-#prints.gallery .cardimg img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 85% 50%;
-    transition: transform .6s ease;
-}
-
-#gallery.gallery .card:hover .cardimg img,
-#commission.gallery .card:hover .cardimg img,
-#prints.gallery .card:hover .cardimg img {
-    transform: scale(1.025);
-}
-
-#gallery.gallery .meta,
-#commission.gallery .meta,
-#prints.gallery .meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 25px;
-    padding-top: 18px;
-}
-
-#gallery.gallery .meta h3,
-#commission.gallery .meta h3,
-#prints.gallery .meta h3 {
-    margin: 0 0 6px;
-    font-family: var(--serif);
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 1.1;
-}
-
-#gallery.gallery .meta p,
-#commission.gallery .meta p,
-#prints.gallery .meta p {
-    margin: 0;
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
-#gallery.gallery .meta>span,
-#commission.gallery .meta>span,
-#prints.gallery .meta>span {
-    flex-shrink: 0;
-    font-size: 11px;
-    letter-spacing: .08em;
-    color: var(--muted);
-}
-
-/* =========================================================
-   MOBILE
+   RESPONSIVE
    ========================================================= */
 @media (max-width: 800px) {
-
-    /* Header */
-    .nav,
-    .header {
-        height: 78px;
-        padding: 10px 6vw;
+    :root {
+        --header-h: 78px;
     }
 
-    .logo-img,
-    .logo {
+    /* Header */
+    .nav {
+        padding: 0 6vw;
+    }
+
+    .site-logo {
         width: 180px;
         height: 52px;
         flex-basis: 180px;
     }
 
-    .logo-img {
-        height: auto;
-    }
-
-    .logo img {
+    .site-logo img {
         width: 180px;
         max-height: 52px;
     }
 
-    .nav-links {
-        gap: 13px;
+    .site-nav {
+        gap: 15px;
         font-size: 8px;
+        letter-spacing: .12em;
     }
 
-    .header nav {
-        gap: 13px;
-        font-size: 8px;
+    .work-dropdown {
+        left: auto;
+        right: 0;
+        min-width: 230px;
     }
 
-    .nav-links a,
-    .header nav>a,
-    .header nav>.nav-work>a {
-        height: 78px;
-    }
-
-    /* Hero */
-    .hero,
-    .hero-content {
-        min-height: calc(100vh - 78px);
-    }
-
-    .hero-content {
-        padding: 0 7vw 9vh;
-    }
-
+    /* Homepage */
     .hero h1 {
         font-size: clamp(3.6rem, 16vw, 6rem);
     }
@@ -1275,9 +917,7 @@ form textarea:focus {
         display: none;
     }
 
-    /* Featured artwork */
     .hero-artwork {
-        height: calc(100vh - 78px);
         min-height: 600px;
     }
 
@@ -1316,13 +956,6 @@ form textarea:focus {
         font-size: 20px;
     }
 
-    /* Homepage sections */
-    .intro {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 90px 7vw;
-    }
-
     .section {
         padding: 80px 6vw;
     }
@@ -1331,29 +964,6 @@ form textarea:focus {
         display: block;
     }
 
-    .section-intro {
-        margin-top: 22px;
-    }
-
-    /* Stacked layouts */
-    .original-grid,
-    .tutorials,
-    .about,
-    .contact,
-    .detailgrid,
-    .subscription {
-        grid-template-columns: 1fr;
-    }
-
-    .original-grid {
-        gap: 35px;
-    }
-
-    .original-copy {
-        padding-bottom: 10px;
-    }
-
-    /* Collections */
     .collection-strip {
         grid-template-columns: 1fr;
     }
@@ -1362,54 +972,33 @@ form textarea:focus {
         min-height: 70vh;
     }
 
-    /* Tutorials / Contact */
+    /* Stacked two-column layouts */
+    .tutorials,
+    .about,
+    .contact,
+    .detailgrid {
+        grid-template-columns: 1fr;
+    }
+
     .tutorials,
     .contact {
         gap: 45px;
     }
 
-    /* Subscription */
-    .subscription {
-        gap: 40px;
-        padding: 80px 6vw;
-    }
-
-    /* About */
     .about {
         gap: 60px;
+    }
+
+    .detailgrid {
+        gap: 55px;
     }
 
     .aboutcopy h2 {
         font-size: 55px;
     }
 
-    /* Artwork detail */
-    .detailgrid {
-        gap: 55px;
-    }
-
     .info h1 {
         font-size: 70px;
-    }
-
-    /* Feature links */
-    .four-links {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-link {
-        min-height: 200px;
-        padding: 35px 25px;
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-    }
-
-    .feature-link:last-child {
-        border-bottom: none;
-    }
-
-    .feature-link h3 {
-        font-size: 34px;
     }
 
     /* Footer */
@@ -1423,77 +1012,17 @@ form textarea:focus {
     }
 }
 
-.print-description {
-    margin: 18px 0 0;
-    max-width: 520px;
-    font-family: var(--sans);
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--muted);
-}
-
-/* =========================================================
-   TUTORIALS
-   ========================================================= */
-.tutorial-list {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    padding: 80px 6vw;
-}
-
-.tutorial-card {
-    display: grid;
-    grid-template-columns: 35% 65%;
-    align-items: center;
-    width: 100%;
-}
-
-.tutorial-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    background: #f4f1eb;
-}
-
-.tutorial-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.tutorial-content {
-    padding: 40px 8vw 40px 7vw;
-}
-
-.tutorial-content h2 {
-    margin: 12px 0 18px;
-    font-family: var(--serif);
-    font-size: clamp(38px, 4vw, 64px);
-    font-weight: 400;
-    line-height: .95;
-}
-
-.tutorial-subtitle {
-    margin: 0 0 20px;
-    font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ink);
-}
-
-.tutorial-description {
-    max-width: 500px;
-    margin: 0 0 30px;
-    font-family: var(--sans);
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--muted);
-}
-
 @media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 60px 6vw;
+    }
+
+    .meta h3 {
+        font-size: 23px;
+    }
+
     .tutorial-list {
         gap: 60px;
         padding: 60px 6vw;
@@ -1503,10 +1032,6 @@ form textarea:focus {
         grid-template-columns: 1fr;
     }
 
-    .tutorial-image {
-        aspect-ratio: 4 / 5;
-    }
-
     .tutorial-content {
         padding: 30px 0 0;
     }
@@ -1514,223 +1039,4 @@ form textarea:focus {
     .tutorial-content h2 {
         font-size: 42px;
     }
-
-    /* =========================================================
-   MOBILE GALLERY
-   ========================================================= */
-    @media (max-width: 700px) {
-
-        #gallery.gallery,
-        #commission.gallery,
-        #prints.gallery {
-            grid-template-columns: 1fr;
-            gap: 50px;
-            padding: 60px 6vw;
-        }
-
-        #gallery.gallery .cardimg,
-        #commission.gallery .cardimg,
-        #prints.gallery .cardimg {
-            aspect-ratio: 4 / 5;
-        }
-
-        #gallery.gallery .meta h3,
-        #commission.gallery .meta h3,
-        #prints.gallery .meta h3 {
-            font-size: 23px;
-        }
-    }
-
-    /* Small-screen header */
-    .nav,
-    .header {
-        height: auto;
-        min-height: 82px;
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px 5vw;
-    }
-
-    .logo-img,
-    .logo {
-        width: 200px;
-        height: 55px;
-        flex-basis: 55px;
-    }
-
-    .logo-img {
-        height: auto;
-    }
-
-    .logo img {
-        width: 200px;
-        max-height: 55px;
-    }
-
-    .nav-links,
-    .header nav {
-        height: auto;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px 20px;
-        font-size: 8px;
-        letter-spacing: .12em;
-    }
-
-    .nav-links a,
-    .header nav>a,
-    .header nav>.nav-work>a {
-        height: auto;
-    }
-
-    .nav-work {
-        height: auto;
-    }
-
-    /* Mobile dropdown */
-    .work-dropdown {
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: 240px;
-    }
-
-    .nav-work:hover .work-dropdown,
-    .nav-work:focus-within .work-dropdown {
-        transform: translateX(-50%);
-    }
-}
-
-/* =========================================================
-   SHARED SITE HEADER
-   Homepage + Gallery + Inner Pages
-   ========================================================= */
-.nav,
-.header {
-    height: 96px;
-    padding: 0 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 1000;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-}
-
-/* ---------- Logo ---------- */
-.site-logo,
-.logo {
-    display: flex;
-    align-items: center;
-    width: 235px;
-    height: 65px;
-    flex: 0 0 235px;
-    overflow: hidden;
-}
-
-.site-logo img,
-.logo img {
-    display: block;
-    width: 235px;
-    height: auto;
-    max-width: 100%;
-    max-height: 65px;
-    object-fit: contain;
-    object-position: left center;
-}
-
-/* ---------- Navigation ---------- */
-.site-nav,
-.header nav {
-    display: flex;
-    align-items: center;
-    gap: 42px;
-    height: 100%;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-}
-
-.site-nav>a,
-.site-nav .nav-work>a,
-.header nav>a,
-.header nav>.nav-work>a {
-    display: inline-flex;
-    align-items: center;
-    height: 96px;
-    padding: 0;
-    color: var(--ink);
-    text-decoration: none;
-    white-space: nowrap;
-    border-bottom: 1px solid transparent;
-    transition: opacity .25s ease;
-}
-
-.site-nav>a:hover,
-.site-nav .nav-work>a:hover,
-.header nav>a:hover,
-.header nav>.nav-work>a:hover {
-    opacity: .5;
-}
-
-/* =========================================================
-   ORIGINAL ARTWORKS DROPDOWN
-   ========================================================= */
-.nav-work {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 96px;
-    z-index: 2000;
-}
-
-/* Dropdown */
-.work-dropdown {
-    position: absolute;
-    top: 100%;
-    left: -20px;
-    min-width: 270px;
-    padding: 18px 22px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-top: none;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 9999;
-    transition:
-        opacity .22s ease,
-        visibility .22s ease;
-}
-
-.work-dropdown a {
-    display: block;
-    width: 100%;
-    padding: 9px 0;
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    line-height: 1.5;
-    white-space: nowrap;
-    opacity: 1;
-    transition: opacity .18s ease;
-}
-
-.work-dropdown a:hover {
-    opacity: .45;
-}
-
-/* Show dropdown */
-.nav-work:hover .work-dropdown,
-.nav-work:focus-within .work-dropdown {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
 }
