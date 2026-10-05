@@ -2,7 +2,7 @@ const artworks = [
     { id: "kingfisher-flight", title: "Kingfisher's Flight", year: "2026", medium: "Oil on Canvas", dimensions: "100 × 120 cm", image: "images/kingfisher-flight.jpeg", description: "A dynamic portrayal of a kingfisher in mid-flight, capturing the essence of movement and light." },
     { id: "leopard-look", title: "Leopard's Look", year: "2026", medium: "Oil on Canvas", dimensions: "90 × 110 cm", image: "images/leopard-look.jpg", description: "A close-up of a leopard's gaze, capturing the intensity of its stare." },
     { id: "veiled-queen", title: "Veiled Queen", year: "2026", medium: "Oil on Canvas", dimensions: "80 × 100 cm", image: "images/veiled-queen.TIF", description: "A regal figure shrouded in mystery, partially hidden by a veil." },
-    { id: "royal-rest", title: "Royal Rest", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 91 cm", image: "images/royal-rest.TIF", description: "A moment of tranquility in the midst of nature." },
+    { id: "royal-rest", title: "Royal Rest", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 90 cm", image: "images/royal-rest.TIF", description: "A moment of tranquility in the midst of nature." },
 ]; const commissioned = [
     { id: "festive-nature", title: "Festive Nature", year: "2026", medium: "Oil on Canvas", dimensions: "100 × 120 cm", image: "images/festive-nature.jpg", description: "A vibrant depiction of the festive season." },
     { id: "mom-sons", title: "Sign of Love", year: "2026", medium: "Oil on Canvas", dimensions: "91 × 72 cm", image: "images/festive-nature.jpg", description: "A heartwarming portrayal of familial bonds." },
@@ -133,4 +133,15 @@ if (page) {
     <dd>${a.medium}</dd></div><div><dt>Dimensions</dt><dd>${a.dimensions}</dd></div>
     <div><dt>Year</dt><dd>${a.year}</dd></div></dl>
     <a class="button" href="contact.html">Inquire about this work <span>↗</span></a></div></div></section>` }
-const menu = document.querySelector(".menu"), nav = document.querySelector("nav"); if (menu) menu.onclick = () => { nav.classList.toggle("open"); menu.classList.toggle("open") };
+const menuBtn = document.querySelector(".menu"), siteNav = document.querySelector(".site-nav");
+if (menuBtn && siteNav) {
+    const setOpen = (open) => {
+        siteNav.classList.toggle("open", open);
+        menuBtn.classList.toggle("open", open);
+        menuBtn.setAttribute("aria-expanded", open);
+    };
+    menuBtn.addEventListener("click", () => setOpen(!siteNav.classList.contains("open")));
+    siteNav.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+    matchMedia("(min-width: 801px)").addEventListener("change", (e) => { if (e.matches) setOpen(false); });
+}

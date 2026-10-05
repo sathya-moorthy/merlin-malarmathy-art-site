@@ -136,6 +136,11 @@ h3 {
     opacity: .5;
 }
 
+/* Hamburger button: mobile only (see responsive block) */
+.menu {
+    display: none;
+}
+
 /* Optional: add class="active" to the current page's link */
 .site-nav a.active {
     border-color: var(--ink);
@@ -896,16 +901,93 @@ form textarea:focus {
         max-height: 52px;
     }
 
-    .site-nav {
-        gap: 15px;
-        font-size: 8px;
-        letter-spacing: .12em;
+    /* Hamburger button */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        margin-right: -10px;
+        padding: 10px;
+        border: 0;
+        background: none;
+        cursor: pointer;
     }
 
-    .work-dropdown {
-        left: auto;
+    .menu span {
+        display: block;
+        height: 2px;
+        background: var(--ink);
+        transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .menu.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Nav becomes a slide-down panel under the header */
+    .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
         right: 0;
-        min-width: 230px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        height: auto;
+        padding: 8px 6vw 22px;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+        font-size: 11px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    }
+
+    .site-nav.open {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .site-nav>a,
+    .nav-work>a {
+        height: 48px;
+    }
+
+    .nav-work {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Artworks sub-links are always shown, indented */
+    .work-dropdown {
+        position: static;
+        min-width: 0;
+        padding: 0 0 8px 16px;
+        border: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .work-dropdown a {
+        padding: 12px 0;
+        color: var(--muted);
     }
 
     /* Homepage */
