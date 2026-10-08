@@ -3,15 +3,15 @@ const artworks = [
     { id: "leopard-look", title: "Leopard's Look", year: "2026", medium: "Oil on Canvas", dimensions: "18 × 26 cm", image: "images/leopard-look.jpg", description: "A close-up of a leopard's gaze, capturing the intensity of its stare." },
     { id: "veiled-queen", title: "Veiled Queen", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 60 cm", image: "images/veiled-queen.jpg", description: "A regal figure shrouded in mystery, partially hidden by a veil." },
     { id: "royal-rest", title: "Royal Rest", year: "2026", medium: "Oil on Canvas", dimensions: "91 × 72 cm", image: "images/royal-rest.jpg", description: "A moment of tranquility in the midst of nature." },
-    { id: "winter-wonderland", title: "Winter Wonderland", year: "2026", medium: "Oil on Canvas", dimensions: "22 × 16 cm", image: "images/winter-wonderland.jpg", description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters." },
+    { id: "winter-wonderland", title: "Winter Wonderland", year: "2026", medium: "Oil on Canvas", dimensions: "22 × 16 cm", image: "images/winter-wonderland.JPG", description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters." },
 ]; const commissioned = [
     { id: "festive-nature", title: "Festive Nature", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 91 cm", image: "images/festive-nature.jpg", description: "A vibrant depiction of the festive season." },
-    { id: "fun-time", title: "Sibling Love", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 30 cm", image: "images/fun-time.jpg", description: "A memory of playful moments between siblings." },
-    { id: "mom-sons", title: "Sign of Love", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 91 cm", image: "images/mom-sons.jpg", description: "A heartwarming portrayal of familial bonds." },
-    { id: "pro-look", title: "Attire", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 40  cm", image: "images/attire.jpg", description: "A look of a seasoned professional." },
-    { id: "sangam-tamil", title: "Sangam Tamil", year: "2026", medium: "Oil on Canvas", dimensions: "53 × 45  cm", image: "images/sangam-tamil.jpg", description: "A festival visit to the rich cultural heritage of Tamil Nadu." },
+    { id: "fun-time", title: "Sibling Love", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 30 cm", image: "images/fun-time.JPG", description: "A memory of playful moments between siblings." },
+    { id: "mom-sons", title: "Sign of Love", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 91 cm", image: "images/mom-sons.JPG", description: "A heartwarming portrayal of familial bonds." },
+    { id: "pro-look", title: "Attire", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 40  cm", image: "images/attire.JPG", description: "A look of a seasoned professional." },
+    { id: "sangam-tamil", title: "Sangam Tamil", year: "2026", medium: "Oil on Canvas", dimensions: "53 × 45  cm", image: "images/sangam-tamil.JPG", description: "A festival visit to the rich cultural heritage of Tamil Nadu." },
     { id: "valluvar", title: "Ayyan Valluvar", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 91  cm", image: "images/valluvar.jpg", description: "Ayyan Thiruvalluvar, the great Tamil poet and philosopher." },
-    { id: "marutham-japan", title: "Marutham Japan", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22  cm", image: "images/marutham-japan.jpg", description: "A logo design for an Indian community organization in Japan." },
+    { id: "marutham-japan", title: "Marutham Japan", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22  cm", image: "images/marutham-japan.JPG", description:
     { id: "kids", title: "Familial Bonds", year: "2026", medium: "Oil on Canvas", dimensions: "29 × 42  cm", image: "images/kids.jpg", description: "A moment of joy and love shared between siblings." }
 ];
 
@@ -84,7 +84,7 @@ if (commission) {
         title: "Winter Wonderland",
         year: "2026",
         "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
-        image: "images/winter-wonderland.jpg",
+        image: "images/winter-wonderland.JPG",
         description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters."
     }
 ]; const printGallery = document.querySelector("#prints.gallery"); if (printGallery) {
@@ -106,7 +106,7 @@ if (commission) {
         episode: "Episode 01",
         title: "The World of Sketching - Daschund",
         subtitle: "Learn the process. Draw with intention.",
-        image: "images/daschund.jpg",
+        image: "images/daschund.JPG",
         alt: "Daschund sketch",
         description: "Explore the fundamentals of sketching through observation, structure and expressive mark-making."
     }, {
@@ -114,7 +114,7 @@ if (commission) {
         episode: "Episode 02",
         title: "The World of Sketching - Labrador",
         subtitle: "See the structure before the detail.",
-        image: "images/labrador.jpg",
+        image: "images/labrador.JPG",
         alt: "Labrador sketch",
         description: "Learn how to understand form, proportion and structure before adding fine details to your drawing."
     }, {
@@ -122,7 +122,7 @@ if (commission) {
         episode: "Episode 03",
         title: "The World of Sketching - Langur",
         subtitle: "Create depth through observation.",
-        image: "images/langur.jpg",
+        image: "images/langur.JPG",
         alt: "Langur sketch",
         description: "Discover how light and shadow can transform a simple sketch into a convincing three-dimensional study."
     }
