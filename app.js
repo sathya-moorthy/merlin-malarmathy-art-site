@@ -1,13 +1,20 @@
 const artworks = [
-    { id: "kingfisher-flight", title: "Kingfisher's Flight", year: "2026", medium: "Oil on Canvas", dimensions: "100 × 120 cm", image: "images/kingfisher-flight.jpeg", description: "A dynamic portrayal of a kingfisher in mid-flight, capturing the essence of movement and light." },
-    { id: "leopard-look", title: "Leopard's Look", year: "2026", medium: "Oil on Canvas", dimensions: "90 × 110 cm", image: "images/leopard-look.jpg", description: "A close-up of a leopard's gaze, capturing the intensity of its stare." },
-    { id: "veiled-queen", title: "Veiled Queen", year: "2026", medium: "Oil on Canvas", dimensions: "80 × 100 cm", image: "images/veiled-queen.TIF", description: "A regal figure shrouded in mystery, partially hidden by a veil." },
-    { id: "royal-rest", title: "Royal Rest", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 90 cm", image: "images/royal-rest.TIF", description: "A moment of tranquility in the midst of nature." },
+    { id: "kingfisher-flight", title: "Kingfisher's Flight", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22 cm", image: "images/kingfisher-flight.jpeg", description: "A dynamic portrayal of a kingfisher in mid-flight, capturing the essence of movement and light." },
+    { id: "leopard-look", title: "Leopard's Look", year: "2026", medium: "Oil on Canvas", dimensions: "18 × 26 cm", image: "images/leopard-look.jpg", description: "A close-up of a leopard's gaze, capturing the intensity of its stare." },
+    { id: "veiled-queen", title: "Veiled Queen", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 60 cm", image: "images/veiled-queen.jpg", description: "A regal figure shrouded in mystery, partially hidden by a veil." },
+    { id: "royal-rest", title: "Royal Rest", year: "2026", medium: "Oil on Canvas", dimensions: "91 × 72 cm", image: "images/royal-rest.jpg", description: "A moment of tranquility in the midst of nature." },
+    { id: "winter-wonderland", title: "Winter Wonderland", year: "2026", medium: "Oil on Canvas", dimensions: "22 × 16 cm", image: "images/winter-wonderland.jpg", description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters." },
 ]; const commissioned = [
-    { id: "festive-nature", title: "Festive Nature", year: "2026", medium: "Oil on Canvas", dimensions: "100 × 120 cm", image: "images/festive-nature.jpg", description: "A vibrant depiction of the festive season." },
-    { id: "mom-sons", title: "Sign of Love", year: "2026", medium: "Oil on Canvas", dimensions: "91 × 72 cm", image: "images/festive-nature.jpg", description: "A heartwarming portrayal of familial bonds." },
-    { id: "pro-look", title: "Attire", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 40 cm", image: "images/festive-nature.jpg", description: "A look of a seasoned professional." },
+    { id: "festive-nature", title: "Festive Nature", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 91 cm", image: "images/festive-nature.jpg", description: "A vibrant depiction of the festive season." },
+    { id: "fun-time", title: "Sibling Love", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 30 cm", image: "images/fun-time.jpg", description: "A memory of playful moments between siblings." },
+    { id: "mom-sons", title: "Sign of Love", year: "2026", medium: "Oil on Canvas", dimensions: "72 × 91 cm", image: "images/mom-sons.jpg", description: "A heartwarming portrayal of familial bonds." },
+    { id: "pro-look", title: "Attire", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 40  cm", image: "images/attire.jpg", description: "A look of a seasoned professional." },
+    { id: "sangam-tamil", title: "Sangam Tamil", year: "2026", medium: "Oil on Canvas", dimensions: "53 × 45  cm", image: "images/sangam-tamil.jpg", description: "A festival visit to the rich cultural heritage of Tamil Nadu." },
+    { id: "valluvar", title: "Ayyan Valluvar", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 91  cm", image: "images/valluvar.jpg", description: "Ayyan Thiruvalluvar, the great Tamil poet and philosopher." },
+    { id: "marutham-japan", title: "Marutham Japan", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22  cm", image: "images/marutham-japan.jpg", description: "A logo design for an Indian community organization in Japan." },
+    { id: "kids", title: "Familial Bonds", year: "2026", medium: "Oil on Canvas", dimensions: "29 × 42  cm", image: "images/kids.jpg", description: "A moment of joy and love shared between siblings." }
 ];
+
 const gallery = document.querySelector("#gallery");
 if (gallery) {
     gallery.innerHTML = artworks.map((a) => `
@@ -44,7 +51,7 @@ if (commission) {
         id: "kingfisher-flight-print",
         title: "Kingfisher's Flight",
         year: "2026",
-        medium: "Fine art edition",
+        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/kingfisher-flight.jpeg",
         description: "A dynamic portrayal of a kingfisher in mid-flight, capturing the energy of movement and the brilliance of light."
     },
@@ -52,19 +59,35 @@ if (commission) {
         id: "veiled-queen-print",
         title: "Veiled Queen",
         year: "2026",
-        medium: "Fine art edition",
-        image: "images/veiled-queen.TIF",
+        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        image: "images/veiled-queen.jpg",
         description: "A regal and mysterious portrait exploring elegance, presence, and the quiet beauty of concealment."
     },
     {
         id: "leopard-look-print",
         title: "Leopard's Look",
         year: "2026",
-        medium: "Fine art edition",
+        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/leopard-look.jpg",
         description: "A striking study of a leopard's gaze, capturing its strength, intensity, and distinctive character."
+    },
+    {
+        id: "royal-rest-print",
+        title: "Royal Rest",
+        year: "2026",
+        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        image: "images/royal-rest.jpg",
+        description: "A serene depiction of a royal figure in a moment of tranquility, showcasing the grace and dignity of nobility."
+    },
+    {
+        id: "winter-wonderland-print",
+        title: "Winter Wonderland",
+        year: "2026",
+        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        image: "images/winter-wonderland.jpg",
+        description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters."
     }
-]; const printGallery = document.querySelector("#prints"); if (printGallery) {
+]; const printGallery = document.querySelector("#prints.gallery"); if (printGallery) {
     printGallery.innerHTML = prints.map((a) => `
         <article class="card">
             <div class="cardimg">
@@ -81,29 +104,29 @@ if (commission) {
     {
         id: "episode-01",
         episode: "Episode 01",
-        title: "The World of Sketching",
+        title: "The World of Sketching - Daschund",
         subtitle: "Learn the process. Draw with intention.",
-        image: "images/monkey.jpg",
-        alt: "Langur",
+        image: "images/daschund.jpg",
+        alt: "Daschund sketch",
         description: "Explore the fundamentals of sketching through observation, structure and expressive mark-making."
     }, {
         id: "episode-02",
         episode: "Episode 02",
-        title: "Understanding Form",
+        title: "The World of Sketching - Labrador",
         subtitle: "See the structure before the detail.",
-        image: "images/tutorial-02.jpg",
-        alt: "Sketching tutorial",
+        image: "images/labrador.jpg",
+        alt: "Labrador sketch",
         description: "Learn how to understand form, proportion and structure before adding fine details to your drawing."
     }, {
         id: "episode-03",
         episode: "Episode 03",
-        title: "Light and Shadow",
+        title: "The World of Sketching - Langur",
         subtitle: "Create depth through observation.",
-        image: "images/tutorial-03.jpg",
-        alt: "Light and shadow sketch",
+        image: "images/langur.jpg",
+        alt: "Langur sketch",
         description: "Discover how light and shadow can transform a simple sketch into a convincing three-dimensional study."
     }
-]; const tutorialList = document.querySelector("#tutorials"); if (tutorialList) {
+]; const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
     tutorialList.innerHTML = tutorials.map((t) => `
         <article class="tutorial-card">            <div class="tutorial-image">
                 <img src="${t.image}" alt="${t.alt}">
