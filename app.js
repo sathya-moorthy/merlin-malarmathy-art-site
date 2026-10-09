@@ -11,7 +11,7 @@ const artworks = [
     { id: "pro-look", title: "Attire", year: "2026", medium: "Oil on Canvas", dimensions: "60 × 40  cm", image: "images/attire.JPG", description: "A look of a seasoned professional." },
     { id: "sangam-tamil", title: "Sangam Tamil", year: "2026", medium: "Oil on Canvas", dimensions: "53 × 45  cm", image: "images/sangam-tamil.JPG", description: "A festival visit to the rich cultural heritage of Tamil Nadu." },
     { id: "valluvar", title: "Ayyan Valluvar", year: "2026", medium: "Oil on Canvas", dimensions: "70 × 91  cm", image: "images/valluvar.jpg", description: "Ayyan Thiruvalluvar, the great Tamil poet and philosopher." },
-    { id: "marutham-japan", title: "Marutham Japan", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22  cm", image: "images/marutham-japan.JPG", description:
+    { id: "marutham-japan", title: "Marutham Japan", year: "2026", medium: "Oil on Canvas", dimensions: "27 × 22  cm", image: "images/marutham-japan.JPG", description: "Official logo for the Marutham Indo Japan Community" },
     { id: "kids", title: "Familial Bonds", year: "2026", medium: "Oil on Canvas", dimensions: "29 × 42  cm", image: "images/kids.jpg", description: "A moment of joy and love shared between siblings." }
 ];
 
@@ -100,8 +100,7 @@ if (commission) {
             </div>            <p class="print-description">${a.description}</p>
         </article>
     `).join("");
-} 
-const tutorials = [
+} const tutorials = [
     {
         id: "episode-01",
         episode: "Episode 01",
@@ -127,8 +126,7 @@ const tutorials = [
         alt: "Langur sketch",
         description: "Discover how light and shadow can transform a simple sketch into a convincing three-dimensional study."
     }
-]; 
-const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
+]; const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
     tutorialList.innerHTML = tutorials.map((t) => `
         <article class="tutorial-card">            <div class="tutorial-image">
                 <img src="${t.image}" alt="${t.alt}">
@@ -142,8 +140,7 @@ const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tut
                 </a>
             </div>        </article>
     `).join("");
-} 
-const page = document.querySelector("#artwork");
+} const page = document.querySelector("#artwork");
 if (page) {
     const id = new URLSearchParams(location.search).get("id");
     const a = artworks.find(x => x.id === id) ||
