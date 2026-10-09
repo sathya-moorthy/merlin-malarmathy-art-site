@@ -100,7 +100,8 @@ if (commission) {
             </div>            <p class="print-description">${a.description}</p>
         </article>
     `).join("");
-} const tutorials = [
+} 
+const tutorials = [
     {
         id: "episode-01",
         episode: "Episode 01",
@@ -126,7 +127,8 @@ if (commission) {
         alt: "Langur sketch",
         description: "Discover how light and shadow can transform a simple sketch into a convincing three-dimensional study."
     }
-]; const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
+]; 
+const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
     tutorialList.innerHTML = tutorials.map((t) => `
         <article class="tutorial-card">            <div class="tutorial-image">
                 <img src="${t.image}" alt="${t.alt}">
@@ -140,7 +142,8 @@ if (commission) {
                 </a>
             </div>        </article>
     `).join("");
-} const page = document.querySelector("#artwork");
+} 
+const page = document.querySelector("#artwork");
 if (page) {
     const id = new URLSearchParams(location.search).get("id");
     const a = artworks.find(x => x.id === id) ||
