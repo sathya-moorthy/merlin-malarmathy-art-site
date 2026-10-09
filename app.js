@@ -51,7 +51,7 @@ if (commission) {
         id: "kingfisher-flight-print",
         title: "Kingfisher's Flight",
         year: "2026",
-        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        pricing: "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/kingfisher-flight.jpeg",
         description: "A dynamic portrayal of a kingfisher in mid-flight, capturing the energy of movement and the brilliance of light."
     },
@@ -59,7 +59,7 @@ if (commission) {
         id: "veiled-queen-print",
         title: "Veiled Queen",
         year: "2026",
-        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        pricing: "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/veiled-queen.jpg",
         description: "A regal and mysterious portrait exploring elegance, presence, and the quiet beauty of concealment."
     },
@@ -67,7 +67,7 @@ if (commission) {
         id: "leopard-look-print",
         title: "Leopard's Look",
         year: "2026",
-        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        pricing: "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/leopard-look.jpg",
         description: "A striking study of a leopard's gaze, capturing its strength, intensity, and distinctive character."
     },
@@ -75,7 +75,7 @@ if (commission) {
         id: "royal-rest-print",
         title: "Royal Rest",
         year: "2026",
-        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        pricing: "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/royal-rest.jpg",
         description: "A serene depiction of a royal figure in a moment of tranquility, showcasing the grace and dignity of nobility."
     },
@@ -83,7 +83,7 @@ if (commission) {
         id: "winter-wonderland-print",
         title: "Winter Wonderland",
         year: "2026",
-        "Size & Pricing": "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
+        pricing: "A4 - ¥5000, A3 - ¥8000, A2 - ¥12000, A1 - ¥25000",
         image: "images/winter-wonderland.JPG",
         description: "A magical portrayal of a winter landscape, capturing the beauty and serenity of snow-covered trees and frozen waters."
     }
@@ -95,8 +95,8 @@ if (commission) {
             </div>            <div class="meta">
                 <div>
                     <h3>${a.title}</h3>
-                    <p>${a.medium}</p>
-                </div>                <span>Coming soon</span>
+                    <p>${a.pricing}</p>
+                </div>                <span>${a.year}</span>
             </div>            <p class="print-description">${a.description}</p>
         </article>
     `).join("");
@@ -108,6 +108,7 @@ if (commission) {
         subtitle: "Learn the process. Draw with intention.",
         image: "images/daschund.JPG",
         alt: "Daschund sketch",
+        link: "https://youtu.be/xDHGT-Rmy18?si=3EWgf5pCxZtPPbWJ",
         description: "Explore the fundamentals of sketching through observation, structure and expressive mark-making."
     }, {
         id: "episode-02",
@@ -116,6 +117,7 @@ if (commission) {
         subtitle: "See the structure before the detail.",
         image: "images/labrador.JPG",
         alt: "Labrador sketch",
+        link: "https://www.youtube.com/shorts/DVZpg3Adpy0",
         description: "Learn how to understand form, proportion and structure before adding fine details to your drawing."
     }, {
         id: "episode-03",
@@ -124,6 +126,7 @@ if (commission) {
         subtitle: "Create depth through observation.",
         image: "images/langur.JPG",
         alt: "Langur sketch",
+        link: "https://www.youtube.com/shorts/Jir5ND-CnWs",
         description: "Discover how light and shadow can transform a simple sketch into a convincing three-dimensional study."
     }
 ]; const tutorialList = document.querySelector("#tutorials.tutorial-list"); if (tutorialList) {
@@ -135,7 +138,7 @@ if (commission) {
                     ${t.subtitle}
                 </p>                <p class="tutorial-description">
                     ${t.description}
-                </p>                <a href="#" class="button">
+                </p>                <a href="${t.link}" class="button" target="_blank">
                     Watch episode <span>↗</span>
                 </a>
             </div>        </article>
